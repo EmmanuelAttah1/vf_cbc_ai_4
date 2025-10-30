@@ -1,4 +1,4 @@
-const address = "http://127.0.0.1:8000"
+const address = "https://vf-cbc-ai-server.onrender.com"
 
 const chat_container = document.getElementById('chat')
 const match_container = document.getElementById("matches")
