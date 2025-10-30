@@ -53,7 +53,7 @@ const showChats=()=>{
 }
 
 const sendMessageToAPI = (method,endpoint,data={}) => {
-    data["id"] = getID() //add user id, to allow chatbot track message history 
+
     return new Promise((resolve, reject) => {
         fetch(`${address}/${endpoint}`, {
             method: method,
@@ -162,7 +162,7 @@ const submitMessage=(message=null)=>{
         addHumanMessage(value.value)
         addAIMessage("...")
         value.value = ""
-        sendMessageToAPI("post","group4/",{message:val})
+        sendMessageToAPI("post","group4/",{message:val,id:getID()})
         .then(res=>{
             console.log(res);
             
