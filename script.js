@@ -34,7 +34,7 @@ const generateId = () => {
 const getID=()=>{
     const id = localStorage.getItem("visiola_cbc_ai_4")
     if (id === undefined){
-        generateId()
+        return generateId()
     }
 
     return localStorage.getItem("visiola_cbc_ai_4")
@@ -53,6 +53,7 @@ const showChats=()=>{
 }
 
 const sendMessageToAPI = (method,endpoint,data={}) => {
+    data["id"] = getID() //add user id, to allow chatbot track message history 
     return new Promise((resolve, reject) => {
         fetch(`${address}/${endpoint}`, {
             method: method,
